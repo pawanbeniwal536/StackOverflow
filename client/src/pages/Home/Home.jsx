@@ -2,6 +2,7 @@ import React from 'react'
 import LeftSidebar from '../../component/LeftSidebar/LeftSidebar'
 import RightSidebar from '../../component/RightSidebar/RightSidebar'
 import HomeMainbar from '../../component/HomeMainbar/HomeMainbar'
+import './Home.css'
 import '../../App.css';
 function Home() {
   return (

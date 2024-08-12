@@ -12,7 +12,9 @@ function Questions() {
       <div className="home-container-2">
         {/* <QuestionsDetails/> */}
         <HomeMainbar/>
+        <div className="right-sidebar">
       <RightSidebar/>
+      </div>
       </div>
     </div>
   )

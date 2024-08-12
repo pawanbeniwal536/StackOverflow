@@ -15,9 +15,13 @@ function Navbar() {
   const navigate=useNavigate()
 
   const handleLogout = () =>{
+    const confirmation = window.confirm("Are you sure for logout from your account ");
+    if(confirmation){
     dispatch({type: 'LOGOUT'})
+    alert('Successfully Logout')
     navigate('/')
     dispatch(setCurrentUser(null))
+    }
   }
 
   useEffect(()=>{
@@ -43,17 +47,16 @@ function Navbar() {
       {/* <Link to="/"className="nav-item nav-btn">For Teams</Link> */}
       <form>
       <input  type="text"placeholder="Search..."/>
-      <div className="search-icon">
-        <Search/>
-      </div>
       </form>
       { User===null?
       <div className="myclass">
-      <Link to="/Auth"className="myclass2 nav-item nav-links">Log in</Link>
+      <Link to="/Auth"className="myclass2 nav-item nav-links">LogIn</Link>
       </div>:
       <>
-       <Avatar backgroundColor='#009dff' px="10px" py="7px"borderRadius="50%"color="white"><Link to={`/Users/${User.result?._id}`} style={{color:"white",textDecoration:'none'}}>{User.result?.name.charAt(0).toUpperCase()}</Link></Avatar>
-       <button className="myclass3 nav-item nav-links"onClick={handleLogout}>Log out</button>
+      <div className="profile-logo">
+       <Avatar backgroundColor='#009dff' px="10px" py="7px" borderRadius="50%"color="white"><Link to={`/Users/${User.result?._id}`} style={{color:"white",textDecoration:'none'}}>{User.result?.name.charAt(0).toUpperCase()}</Link></Avatar>
+       </div>
+       <button className="myclass3 nav-item nav-links"onClick={handleLogout}>LogOut</button>
       </>
     }
 

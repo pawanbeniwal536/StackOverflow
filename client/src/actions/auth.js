@@ -10,7 +10,11 @@ export const signup=(authData,navigate)=>async(dispatch)=>{
         navigate('/')
     } 
     catch (error) {
-        console.log(error)
+        const errorMessage = error.response?.data?.message || 'An unknown error occurred';
+
+        // Use a formatted message for the alert
+        alert("Error :"+errorMessage);
+        dispatch({type:'AUTH_ERROR',error})
     }
 }
 
@@ -24,6 +28,10 @@ export const login=(authData,navigate)=>async(dispatch)=>{
         navigate('/')
     } 
     catch (error) {
-        console.log(error)
+        const errorMessage = error.response?.data?.message || 'An unknown error occurred';
+
+        // Use a formatted message for the alert
+        alert("Error : "+ errorMessage);
+        dispatch({ type: 'AUTH_ERROR', error });
     }
 }

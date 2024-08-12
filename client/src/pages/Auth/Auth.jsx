@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Auth.css';
 import AboutAuth from './AboutAuth';
 import { useDispatch } from 'react-redux';
@@ -14,6 +14,8 @@ const Auth = () => {
   const [password,setPassword]=useState('')
   const dispatch=useDispatch();
   const navigate=useNavigate();
+  const [error,setError] = useState(null);
+
   const handleSwitch=()=>{
     setIsSignUp(!isSignUp)
   }
@@ -35,7 +37,7 @@ const Auth = () => {
   }
   return (
   <section className='auth-section'>
-{ isSignUp && <AboutAuth/>}
+  { isSignUp && <AboutAuth/>}
     <div className="auth-container-2">
     {!isSignUp&& <img src={Icon}alt='stack-overflow'className='login-logo' width="45"/>}
     <form onSubmit={handleSubmit}>

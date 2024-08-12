@@ -15,7 +15,6 @@ import {
 
 function AllRoutes() {
   return (
-    <div>
         <Routes>
           <Route path="/"element={<Home/>}/>
           <Route path="/Auth"element={<Auth/>}/>
@@ -26,7 +25,6 @@ function AllRoutes() {
           <Route path='/Users' element={<Users/>}/>
           <Route path='/Users/:id'element={<UserProfile/>}/>
         </Routes>
-    </div>
   )
 }
 
